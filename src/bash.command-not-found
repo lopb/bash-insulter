@@ -4,8 +4,6 @@ print_message () {
     local message
 
     messages=(
-        "Boooo!"
-        "Don't you know anything?"
         "RTFM!"
         "Haha, n00b!"
         "Wow! That was impressively wrong!"
@@ -20,7 +18,6 @@ print_message () {
         "And the Darwin Award goes to.... ${USER}!"
         "ERROR_INCOMPETENT_USER"
         "Incompetence is also a form of competence"
-        "Bad."
         "Fake it till you make it!"
         "What is this...? Amateur hour!?"
         "Come on! You can do it!"
@@ -34,8 +31,6 @@ print_message () {
         "error code: 1D10T"
         "ACHTUNG! ALLES TURISTEN UND NONTEKNISCHEN LOOKENPEEPERS! DAS KOMPUTERMASCHINE IST NICHT FÜR DER GEFINGERPOKEN UND MITTENGRABEN! ODERWISE IST EASY TO SCHNAPPEN DER SPRINGENWERK, BLOWENFUSEN UND POPPENCORKEN MIT SPITZENSPARKEN. IST NICHT FÜR GEWERKEN BEI DUMMKOPFEN. DER RUBBERNECKEN SIGHTSEEREN KEEPEN DAS COTTONPICKEN HÄNDER IN DAS POCKETS MUSS. ZO RELAXEN UND WATSCHEN DER BLINKENLICHTEN."
         "Pro tip: type a valid command!"
-        "Go outside."
-        "This is not a search engine."
         "(╯°□°）╯︵ ┻━┻"
         "¯\_(ツ)_/¯"
         "So, I'm just going to go ahead and run rm -rf / for you."
@@ -63,7 +58,6 @@ print_message () {
         "You're proof that god has a sense of humor."
         "Keep trying, someday you'll do something intelligent!"
         "If shit was music, you'd be an orchestra."
-        "How many times do I have to flush before you go away?"
     )
 
     # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
@@ -75,12 +69,9 @@ print_message () {
     # Seed RANDOM with an integer of some length
     RANDOM=$(od -vAn -N4 -tu < /dev/urandom)
 
-    # Print a randomly selected message, but only about half the time to annoy the user a
-    # little bit less.
-    if [[ $((${RANDOM} % 2)) -lt 1 ]]; then
-        message=${messages[${RANDOM} % ${#messages[@]}]}
-        printf "\n  $(tput bold)$(tput setaf 1)${message}$(tput sgr0)\n\n" >&2
-    fi
+    # Print a randomly selected message.
+    message=${messages[${RANDOM} % ${#messages[@]}]}
+    printf "\n  $(tput bold)$(tput setaf 1)${message}$(tput sgr0)\n\n" >&2
 }
 
 function_exists () {

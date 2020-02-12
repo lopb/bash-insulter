@@ -1,3 +1,9 @@
+# Alterations from the forked repo
+
+- Removed some lame insults
+
+- Removed the 50% chance of happening the insult, now it's 100% of the time 
+
 # bash-insulter
 Randomly insults the user when typing wrong command.
 
@@ -28,11 +34,11 @@ noob@bender:~ $ sp aux
 # Installation
 
     # Method 1 - know what you are doing
-    git clone https://github.com/hkbakke/bash-insulter.git bash-insulter
+    git clone https://github.com/lopb/bash-insulter.git bash-insulter
     sudo cp bash-insulter/src/bash.command-not-found /etc/
 
     # Method 2 - I don't care, insult me!
-    sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/hkbakke/bash-insulter/master/src/bash.command-not-found
+    sudo wget -O /etc/bash.command-not-found https://raw.githubusercontent.com/lopb/bash-insulter/master/src/bash.command-not-found
 
 Then source the file automatically for new logins by adding the following to `/etc/bash.bashrc` or any of the other locations where you can configure your shell automatically during login:
 ```
